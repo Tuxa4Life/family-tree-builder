@@ -1,0 +1,39 @@
+{
+    "root": {
+        "id": 0,
+        "name": "Nodari Tukhashvili",
+        "dob": "09/01/1953",
+        "parents": [],
+        "children": [
+            {
+                "id": 1,
+                "name": "Giorgi Tukhashvili",
+                "parents": [0],
+                "dob": "04/04/1973",
+                "children": [
+                    {
+                        "id": 3,
+                        "name": "Nikoloz Tukhashvili",
+                        "dob": "03/14/2005",
+                        "parents": [1],
+                        "children": []
+                    },
+                    {
+                        "id": 4,
+                        "name": "Andria Tukhashvili",
+                        "dob": "11/12/2006",
+                        "parents": [1],
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "name": "Gela Tukhashvili",
+                "dob": "Unknown",
+                "parents": [0],
+                "children": []
+            }
+        ]
+    }
+}

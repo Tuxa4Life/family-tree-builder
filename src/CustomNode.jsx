@@ -13,10 +13,10 @@ const CustomNode = ({ data }) => {
 
         {
             hovered ? <>
-                <div title="Add Parent" style={{ position: 'absolute', top: '0%', left: '51%', transform: 'translate(-50%, -100%)', fontSize: '18px' }} className="add-parent"><i className="plus square outline icon"></i></div>
-                <div title="Add Child" style={{ position: 'absolute', top: '100%', left: '51%', transform: 'translate(-50%, 0%)', fontSize: '18px' }} className="add-child"><i className="plus square outline icon"></i></div>
-                <div title="Add Partner" style={{ position: 'absolute', top: '50%', left: '0', transform: 'translate(-86%, -50%)', fontSize: '18px' }} className="add-parent"><i className="plus square outline icon"></i></div>
-                <div title="Add Sibling" style={{ position: 'absolute', top: '50%', left: '100%', transform: 'translate(0%, -50%)', fontSize: '18px' }} className="add-parent"><i className="plus square outline icon"></i></div>
+                <div title="Add Parent" style={{ position: 'absolute', top: '0%', left: '51%', transform: 'translate(-50%, -100%)', fontSize: '18px' }} className="add-parent"><i className="plus grey square outline icon"></i></div>
+                <div title="Add Child" style={{ position: 'absolute', top: '100%', left: '51%', transform: 'translate(-50%, 0%)', fontSize: '18px' }} className="add-child"><i className="plus grey square outline icon"></i></div>
+                <div title="Add Partner" style={{ position: 'absolute', top: '50%', left: '0', transform: 'translate(-86%, -50%)', fontSize: '18px' }} className="add-parent"><i className="plus grey square outline icon"></i></div>
+                <div title="Add Sibling" style={{ position: 'absolute', top: '50%', left: '100%', transform: 'translate(0%, -50%)', fontSize: '18px' }} className="add-parent"><i className="plus grey square outline icon"></i></div>
             </> : null
         }
 

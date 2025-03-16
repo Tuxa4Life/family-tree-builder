@@ -60,7 +60,6 @@ const App = () => {
         <ReactFlow
             nodes={nodes}
             edges={edges}
-            fitView
             nodesConnectable={false}
             nodesDraggable={false}
             onNodeClick={(_, node) => console.log(node)}

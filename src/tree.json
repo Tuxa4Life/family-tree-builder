@@ -1,39 +1,46 @@
 {
-    "root": {
-        "id": 0,
-        "name": "Nodari Tukhashvili",
-        "dob": "09/01/1953",
-        "parents": [],
-        "children": [
-            {
-                "id": 1,
-                "name": "Giorgi Tukhashvili",
-                "parents": [0],
-                "dob": "04/04/1973",
-                "children": [
-                    {
-                        "id": 3,
-                        "name": "Nikoloz Tukhashvili",
-                        "dob": "03/14/2005",
-                        "parents": [1],
-                        "children": []
-                    },
-                    {
-                        "id": 4,
-                        "name": "Andria Tukhashvili",
-                        "dob": "11/12/2006",
-                        "parents": [1],
-                        "children": []
-                    }
-                ]
-            },
-            {
-                "id": 2,
-                "name": "Gela Tukhashvili",
-                "dob": "Unknown",
-                "parents": [0],
-                "children": []
-            }
-        ]
-    }
+    "members": [
+        {
+            "id": "1",
+            "name": "Nodar Tukhashvili",
+            "parents": [],
+            "children": [],
+            "spouse": []
+        },
+        {
+            "id": "2",
+            "name": "Giorgi Tukhashvili",
+            "parents": ["1"],
+            "children": ["3", "4"],
+            "spouse": ["5"]
+        },
+        {
+            "id": "3",
+            "name": "Nikoloz Tukhashvili",
+            "parents": ["2", "5"],
+            "children": [],
+            "spouse": []
+        },
+        {
+            "id": "4",
+            "name": "Andria Tukhashvili",
+            "parents": ["2", "5"],
+            "children": [],
+            "spouse": []
+        },
+        {
+            "id": "5",
+            "name": "Nino Naskidashvili",
+            "parents": ["6"],
+            "children": ["3", "4"],
+            "spouse": ["2"]
+        },
+        {
+            "id": "6",
+            "name": "Khvtisavar Naskidashvili",
+            "parents": [],
+            "children": ["5"],
+            "spouse": []
+        }
+    ]
 }

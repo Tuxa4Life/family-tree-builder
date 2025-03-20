@@ -1,15 +1,15 @@
 import tree from './tree.json'
 
-const members = tree.members
+const member_list = tree.members
 
-const getSelf = (id) => {
+const getSelf = (id, members = member_list) => {
     for (let i = 0; i < members.length; i++) {
         if (members[i].id === id) return members[i]
         if (i == members.length - 1) return {}
     }
 }
  
-const getParents = (id) => {
+const getParents = (id, members = member_list) => {
     for (let i = 0; i < members.length; i++) {
         if (members[i].id === id) {
             let output = []
@@ -24,7 +24,7 @@ const getParents = (id) => {
     }
 }
 
-const getChildren = (id) => {
+const getChildren = (id, members = member_list) => {
     for (let i = 0; i < members.length; i++) {
         if (members[i].id === id) {
             let output = []
@@ -39,25 +39,54 @@ const getChildren = (id) => {
     }
 }
 
+const getSiblings = (id) => {
+    return getParents(id).length != 0 ? getParents(id)[0].children : [id]
+}
 
-const buildTree = () => {
+const getChildIndex = (id) => {
+    let siblings =  getSiblings(id)
+    for (let i = 0; i <siblings.length; i++) {
+        if (id === siblings[i]) return i
+    }
+
+    throw new Error('Not in siblings')
+}
+
+const buildTree = (members = member_list) => {
     let nodes = []
     let edges = []
 
     let x, y = 0
+    let gap = 300
 
     for (let i = 0; i < members.length; i++) {
         let e = members[i]
+
+        let siblings = getSiblings(e.id)
+        let childIndex = getChildIndex(e.id)
+
+        let px_sum = 0
+        console.log(e.name, e.parents)
+        e.parents.forEach(parent => {
+            px_sum += getSelf(parent, nodes).position.x || 0
+        })
+        let px_middle = px_sum / e.parents.length
+        let x_start = px_middle - (gap / 2) * (siblings.length - 1)
+ 
+        x = x_start + gap * childIndex
+
         nodes.push({
-            id: `${e.id}`,
+            id: e.id,
             position: { x, y },
-            data: { label: e.name, parents: e.parents, children: e.children },
+            data: { label: e.name, parents: e.parents, children: e.children, spouse: e.spouse },
             type: 'customNode'
         });
     }
+
+    return nodes
 }
 
-export { getSelf, getParents, getChildren }
+export { getSelf, getParents, getChildren, buildTree, getSiblings, getChildIndex }
 
 
 // const buildTree = (root) => {

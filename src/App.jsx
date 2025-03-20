@@ -2,7 +2,7 @@ import { Controls, ReactFlow, Background } from "@xyflow/react";
 import '@xyflow/react/dist/style.css';
 import { useState, useEffect } from "react";
 import CustomNode from "./CustomNode";
-import { getSelf, getParents, getChildren } from "./functions";
+import { getSelf, getParents, getChildren, buildTree, getSiblings, getChildIndex } from "./functions";
 
 const initialNodes = [
     { id: '0', position: { x: 0, y: 0 }, data: { label: 'Root' } },
@@ -15,9 +15,7 @@ const App = () => {
     const [edges, setEdges] = useState(initialEdges)
  
     useEffect(() => {
-        console.log(getSelf("2"))
-        console.log(getParents("2"))
-        console.log(getChildren("2"))
+        console.log(buildTree())
     }, [])
 
     const nodeTypes = {

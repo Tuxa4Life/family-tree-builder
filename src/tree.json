@@ -4,7 +4,14 @@
             "id": "1",
             "name": "Nodar Tukhashvili",
             "parents": [],
-            "children": [],
+            "children": ["2"],
+            "spouse": []
+        },
+        {
+            "id": "6",
+            "name": "Khvtisavar Naskidashvili",
+            "parents": [],
+            "children": ["5"],
             "spouse": []
         },
         {
@@ -13,6 +20,13 @@
             "parents": ["1"],
             "children": ["3", "4"],
             "spouse": ["5"]
+        },
+        {
+            "id": "5",
+            "name": "Nino Naskidashvili",
+            "parents": ["6"],
+            "children": ["3", "4"],
+            "spouse": ["2"]
         },
         {
             "id": "3",
@@ -27,20 +41,7 @@
             "parents": ["2", "5"],
             "children": [],
             "spouse": []
-        },
-        {
-            "id": "5",
-            "name": "Nino Naskidashvili",
-            "parents": ["6"],
-            "children": ["3", "4"],
-            "spouse": ["2"]
-        },
-        {
-            "id": "6",
-            "name": "Khvtisavar Naskidashvili",
-            "parents": [],
-            "children": ["5"],
-            "spouse": []
         }
+        
     ]
 }

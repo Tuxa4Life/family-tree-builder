@@ -4,12 +4,8 @@ import { useState } from "react";
 const CustomNode = ({ data }) => {
     const [hovered, setHovered] = useState(false)
 
-    return <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} style={{ position: 'relative', textAlign: 'center', padding: '10px', border: '1px solid black', borderRadius: '5px', backgroundColor: 'white' }}>
+    return <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} style={{ position: 'relative', textAlign: 'center', padding: '10px', border: '1px solid black', borderRadius: '5px', backgroundColor: 'white', width: '200px' }}>
         <div>{data.label}</div>
-        <div style={{ marginTop: '5px', fontSize: '12px', color: 'gray' }}>
-            <i className="birthday cake icon"></i> 
-            {data.dob}
-        </div>
 
         {
             hovered ? <>

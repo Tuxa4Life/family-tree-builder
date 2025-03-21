@@ -4,44 +4,57 @@
             "id": "1",
             "name": "Nodar Tukhashvili",
             "parents": [],
-            "children": ["2"],
-            "spouse": []
-        },
-        {
-            "id": "6",
-            "name": "Khvtisavar Naskidashvili",
-            "parents": [],
-            "children": ["5"],
-            "spouse": []
+            "children": ["2", "8"],
+            "spouse": "7"
         },
         {
             "id": "2",
             "name": "Giorgi Tukhashvili",
-            "parents": ["1"],
+            "parents": ["1", "7"],
             "children": ["3", "4"],
-            "spouse": ["5"]
-        },
-        {
-            "id": "5",
-            "name": "Nino Naskidashvili",
-            "parents": ["6"],
-            "children": ["3", "4"],
-            "spouse": ["2"]
+            "spouse": "5"
         },
         {
             "id": "3",
             "name": "Nikoloz Tukhashvili",
             "parents": ["2", "5"],
             "children": [],
-            "spouse": []
+            "spouse": ""
         },
         {
             "id": "4",
             "name": "Andria Tukhashvili",
             "parents": ["2", "5"],
             "children": [],
-            "spouse": []
+            "spouse": ""
+        },
+        {
+            "id": "5",
+            "name": "Nino Naskidashvili",
+            "parents": ["6"],
+            "children": ["3", "4"],
+            "spouse": "2"
+        },
+        {
+            "id": "6",
+            "name": "Khvtisavar Naskidashvili",
+            "parents": [],
+            "children": ["5"],
+            "spouse": ""
+        },
+        {
+            "id": "7",
+            "name": "Liana Migriauli",
+            "parents": [],
+            "children": ["2", "8"],
+            "spouse": "1"
+        },
+        {
+            "id": "8",
+            "name": "Gela Tukhashvili",
+            "parents": ["1", "7"],
+            "children": [],
+            "spouse": ""
         }
-        
     ]
 }

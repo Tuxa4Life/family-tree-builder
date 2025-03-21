@@ -1,6 +1,12 @@
 import tree from './tree.json'
 
 const member_list = tree.members
+const initialNode = [{
+    id: tree.members[0].id,
+    position: { x: 0, y: 0 },
+    data: { label: tree.members[0].name, parents: tree.members[0].parents, children: tree.members[0].children, spouse: tree.members[0].spouse},
+    type: 'customNode'
+}];
 
 const getSelf = (id, members = member_list) => {
     for (let i = 0; i < members.length; i++) {
@@ -45,48 +51,58 @@ const getSiblings = (id) => {
 
 const getChildIndex = (id) => {
     let siblings =  getSiblings(id)
-    for (let i = 0; i <siblings.length; i++) {
+    for (let i = 0; i < siblings.length; i++) {
         if (id === siblings[i]) return i
     }
 
     throw new Error('Not in siblings')
 }
 
-const buildTree = (members = member_list) => {
-    let nodes = []
-    let edges = []
-
-    let x, y = 0
-    let gap = 300
-
-    for (let i = 0; i < members.length; i++) {
-        let e = members[i]
-
-        let siblings = getSiblings(e.id)
-        let childIndex = getChildIndex(e.id)
-
-        let px_sum = 0
-        console.log(e.name, e.parents)
-        e.parents.forEach(parent => {
-            px_sum += getSelf(parent, nodes).position.x || 0
-        })
-        let px_middle = px_sum / e.parents.length
-        let x_start = px_middle - (gap / 2) * (siblings.length - 1)
- 
-        x = x_start + gap * childIndex
+const renderSpouse = (member, nodes, edges) => {
+    if (member.data.spouse) {
+        let spouse = getSelf(member.data.spouse)
 
         nodes.push({
-            id: e.id,
-            position: { x, y },
-            data: { label: e.name, parents: e.parents, children: e.children, spouse: e.spouse },
+            id: spouse.id,
+            position: { x: member.position.x + 300, y: member.position.y },
+            data: { label: spouse.name, parents: spouse.parents, children: spouse.children, spouse: spouse.spouse},
             type: 'customNode'
-        });
+        })
+
+        return [member.position.x + 150, member.position.y]
     }
 
-    return nodes
+    return [member.position.x, member.position.y]
 }
 
-export { getSelf, getParents, getChildren, buildTree, getSiblings, getChildIndex }
+const renderChildren = (member, x_middle, y_middle, nodes, edges) => {
+    let x_start = x_middle - 150 * (member.data.children.length - 1)
+    let y_start = y_middle + 100
+
+    member.data.children.forEach((e, i) => {
+        let child = getSelf(e)
+
+        nodes.push({
+            id: child.id,
+            position: { x: x_start + 300 * i, y: y_start },
+            data: { label: child.name, parents: child.parents, children: child.children, spouse: child.spouse},
+            type: 'customNode'
+        })
+
+        getParents(child.id).forEach(parent => {
+            edges.push({ 
+                id: parent.id + "-" + child.id, 
+                source: parent.id, 
+                target: child.id, 
+                type: 'step' 
+            });
+        })
+    })
+}
+
+
+
+export { renderChildren, renderSpouse, getSelf, initialNode }
 
 
 // const buildTree = (root) => {

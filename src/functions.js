@@ -55,7 +55,15 @@ const getChildIndex = (id) => {
         if (id === siblings[i]) return i
     }
 
-    throw new Error('Not in siblings')
+    throw new Error('Not in siblings.')
+}
+
+const getIndexInNodes = (id, nodes) => {
+    for (let i = 0; i < nodes.length; i++) {
+        if (id === nodes[i].id) return i
+    }
+
+    throw new Error('ID: ' + id + ' Not in nodes.')
 }
 
 const renderSpouse = (member, nodes, edges) => {
@@ -102,7 +110,7 @@ const renderChildren = (member, x_middle, y_middle, nodes, edges) => {
 
 
 
-export { renderChildren, renderSpouse, getSelf, initialNode }
+export { renderChildren, renderSpouse, getSelf, getIndexInNodes, initialNode }
 
 
 // const buildTree = (root) => {

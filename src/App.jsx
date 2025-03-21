@@ -2,7 +2,7 @@ import { Controls, ReactFlow, Background } from "@xyflow/react";
 import '@xyflow/react/dist/style.css';
 import { useState, useEffect } from "react";
 import CustomNode from "./CustomNode";
-import { initialNode, renderSpouse, renderChildren, getSelf } from "./functions";
+import { initialNode, renderSpouse, renderChildren, getSelf, getIndexInNodes } from "./functions";
 
 
 
@@ -19,6 +19,12 @@ const App = () => {
         let aux = (start_node) => {
             let [x_middle, y_middle] = renderSpouse(start_node, nodes, edges)
             renderChildren(start_node, x_middle, y_middle, nodes, edges)
+
+            if (start_node.data.children.length !== 0) {
+                start_node.data.children.forEach(id => {
+                    aux(nodes[getIndexInNodes(id, nodes)])
+                })
+            }
         }
     
         aux(nodes[0])
@@ -28,7 +34,6 @@ const App = () => {
     }
  
     useEffect(() => {
-        console.log("-----------")
         buildTree()
     }, [])
 

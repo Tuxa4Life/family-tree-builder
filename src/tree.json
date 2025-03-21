@@ -4,7 +4,7 @@
             "id": "1",
             "name": "Nodar Tukhashvili",
             "parents": [],
-            "children": ["2", "8"],
+            "children": ["8", "2"],
             "spouse": "7"
         },
         {
@@ -36,13 +36,6 @@
             "spouse": "2"
         },
         {
-            "id": "6",
-            "name": "Khvtisavar Naskidashvili",
-            "parents": [],
-            "children": ["5"],
-            "spouse": ""
-        },
-        {
             "id": "7",
             "name": "Liana Migriauli",
             "parents": [],
@@ -53,6 +46,20 @@
             "id": "8",
             "name": "Gela Tukhashvili",
             "parents": ["1", "7"],
+            "children": ["9", "10"],
+            "spouse": ""
+        },
+        {
+            "id": "9",
+            "name": "Sandro Tukhashvili",
+            "parents": ["8"],
+            "children": [],
+            "spouse": ""
+        },
+        {
+            "id": "10",
+            "name": "Lika Tukhashvili",
+            "parents": ["8"],
             "children": [],
             "spouse": ""
         }
